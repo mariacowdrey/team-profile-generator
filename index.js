@@ -4,8 +4,9 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const chalk = require('chalk');
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "dist");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
@@ -22,7 +23,7 @@ const initialQuestion = () => {
         },
     ])
         .then(answer => {
-            console.log(answer);
+           
             if (answer.employeeType === 'Manager') {
                 managerQuestions();
             } else if
@@ -83,7 +84,7 @@ const internQuestions = () => {
                 let data = render(employeeArr);
                 fs.writeFile(outputPath, data, (err) => {
                     if (err) throw err;
-                    console.log('The file has been saved!');
+                    console.log(chalk.green('The file has been saved!'));
                 });
             }
         })
@@ -131,7 +132,7 @@ const engineerQuestions = () => {
                 let data = render(employeeArr);
                 fs.writeFile(outputPath, data, (err) => {
                     if (err) throw err;
-                    console.log('The file has been saved!');
+                    console.log(chalk.green('The file has been saved!'));
                 });
             }
         })
@@ -181,7 +182,7 @@ const managerQuestions = () => {
                 let data = render(employeeArr);
                 fs.writeFile(outputPath, data, (err) => {
                     if (err) throw err;
-                    console.log('The file has been saved!');
+                    console.log(chalk.green('The file has been saved!'));
                 });
             }
            
