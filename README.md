@@ -1,4 +1,4 @@
-#Team Profile Generator
+# Team Profile Generator
 
 ## Description 
 A Node CLI application that generates a team profile based on user input. The profile displays information for three types of employees: manager, engineer and intern. It uses the Inquirer package to prompt questions in the command line.
